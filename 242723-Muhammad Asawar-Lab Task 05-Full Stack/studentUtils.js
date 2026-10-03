@@ -1,0 +1,33 @@
+export const DEPARTMENT_NAME = "Computer Science";
+
+export function calculateTotal(...marks) {
+    return marks.reduce((total, mark) => total + mark, 0);
+}
+
+export const calculateAverage = (...marks) => {
+    return marks.length === 0
+        ? 0
+        : calculateTotal(...marks) / marks.length;
+};
+
+export function getGrade(marks) {
+    if (marks >= 80) {
+        return "A";
+    } else if (marks >= 70) {
+        return "B";
+    } else if (marks >= 60) {
+        return "C";
+    } else if (marks >= 50) {
+        return "D";
+    } else {
+        return "F";
+    }
+}
+
+export const getStatus = (marks) => {
+    return marks >= 50 ? "Pass" : "Fail";
+};
+
+export default function formatStudentResult(name, rollNumber, total) {
+    return `${name} (${rollNumber}) - Total Marks: ${total}`;
+}
